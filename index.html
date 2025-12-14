@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Chiquita ❤️</title>
+    <style>
+        /* Estética 'Miniso': Fuente redonda, colores pastel y sombras suaves */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        body {
+            background-color: #fdf2f8; /* Rosa muy pálido */
+            font-family: 'Quicksand', sans-serif;
+            color: #5d5d5d;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #db2777;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas estilo Polaroid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) rotate(2deg);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #831843;
+        }
+
+        .btn-love {
+            background-color: #db2777;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 40px;
+            box-shadow: 0 4px 10px rgba(219, 39, 119, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🐻 Cosas que le gustan al Osito 🐻</h1>
+        <p>...de su chiquita preciosa</p>
+
+        <div class="gallery">
+            <div class="card">
+                <img src="img/foto1.jpg" alt="Sonrisa"> 
+                <p>Cuando te ríes por mis chistes malos</p>
+            </div>
+
+            <div class="card">
+                <img src="img/foto2.jpg" alt="D&D">
+                <p>Nuestras ganas de jugar D&D</p>
+            </div>
+
+            <div class="card">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../giphy.gif" alt="Gif tierno">
+                <p>Que me apoyes con mis códigos</p>
+            </div>
+        </div>
+
+        <button class="btn-love" onclick="alert('¡Te amo muchísimo! ❤️')">Click si me amas</button>
+    </div>
+
+</body>
+</html>
