@@ -72,6 +72,31 @@
             margin-top: 40px;
             box-shadow: 0 4px 10px rgba(219, 39, 119, 0.3);
         }
+        .poem-section {
+            background-color: #fff0f5; /* Un rosa diferente al fondo */
+            border: 2px dashed #db2777; /* Borde punteado estilo cupón/carta */
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px auto 40px auto; /* Margen para separarlo del título y la galería */
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(219, 39, 119, 0.1);
+        }
+
+        .poem-title {
+            font-size: 1.5rem;
+            color: #db2777;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .poem-content {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            white-space: pre-line; /* Esto respeta los saltos de línea de tu poema */
+        }
     </style>
 </head>
 <body>
@@ -79,7 +104,12 @@
     <div class="container">
         <h1>🐻 Cosas que le gustan al Osito 🐻</h1>
         <p>...de su chiquita preciosa</p>
-
+        <div class="poem-section">
+    <div class="poem-title">✨ Poema del Día ✨</div>
+    <div class="poem-content" id="poema-diario">
+        Cargando las palabras del osito...
+    </div>
+    </div>
         <div class="gallery">
             <div class="card">
                 <img src="img/foto1.jpg" alt="Sonrisa"> 
@@ -99,6 +129,100 @@
 
         <button class="btn-love" onclick="alert('¡Te amo muchísimo! ❤️')">Click si me amas</button>
     </div>
-
+    
 </body>
+<script>
+        // --- TUS POEMAS AQUÍ ---
+        const misPoemas = [
+            `"Eres mi lucero, como tambien mi guia,
+            iluminas mi alma en mi peor día."`,
+
+            `"Sin tu apoyo, me perderia
+            y sin tus besos mi vida no tendria sentido.
+            que se seria de mi sin sentir tus latidos,
+            mi mente por completo se nublaria."`,
+
+            `"Eres mi blindbox favorita,
+            porque cada día contigo
+            es una hermosa sorpresa."`,
+            
+            // ¡Agrega todos los que quieras separando con comas!
+            `"Esto es para ti
+            desde el fondo de mi corazón,
+            por que el dia que te vi
+            supe que eras mi gran amor."`,
+
+            `"Entre todas las posibilidades del universo,
+            te eligo a ti, una y otra vez.
+            por que eres mi todo,
+            mi principio y mi fin,"`,
+
+            `"Este poema llega desde el primer dia
+            cuando tu mirada chocó con la mia.
+            y me di cuenta de lo rapido que mi corazon latia.
+            son 3 años y 6 meses,
+            y mi amor por ti solo crece.
+            
+            solo decirte que este corazon,
+            tiene dueña y esa eres tu mi amor."`,
+
+            `"Me gusta todo de ti,
+            desde tu olor,
+            hasta tu forma de reir.
+            eres perfecta para mi,
+            y contigo tire un D20 
+            y al ver el critico sonrei"`,
+
+            `"soy un poco torpe,
+            y tambien un poco distraido,
+            pero si hay algo que se
+            es que te amo con cada fibra de mi ser"`,
+
+            `"En tu fe todo lo puedes
+            y en tu alma todo puedes lograr,
+            por que eres alguien fuerte
+            y no se puede negar.
+            
+            alma pura de corazon valiente
+            no dejes que los malos apaguen tu luz,
+            vive siempre mirando al frente
+            y muestrale al mundo quien eres tu."`,
+
+            `"Siempre estare ahi para ti
+            aunque el mundo me aleje de tu ser
+            aun si mi cuerpo no puede estar junto al tuyo
+            mi alma siempre te va a pertenecer.
+            
+            este escrito valdra cada ves que sientas mal
+            por que este es mi apoyo
+            y jamas se va a deteriorar
+            
+            mis regalos buscan tocar tu corazon
+            y mostrarte mi alma
+            hacerte sentir,
+            que siempre estaras acompañada
+            por mi amor y mi comedia 
+
+            tu eres mi inspiracion 
+            y mi razon de ser
+            eres el motivo por el cual
+            todos los dias debo agradecer
+
+            eres tan especial y calientas mi alma
+            oh amor, por favor vuelve a sonreir
+            y llena mi corazon del amor.....
+            que me haces sentir."`
+        ];
+
+        // Lógica para elegir el poema según el día del mes
+        const fecha = new Date();
+        const diaDelMes = fecha.getDate(); // Retorna un número del 1 al 31
+        
+        // Esto asegura que el poema rote y no se rompa si hay pocos poemas
+        // (Usa el operador módulo %)
+        const indice = diaDelMes % misPoemas.length;
+
+        // Mostrar el poema
+        document.getElementById("poema-diario").innerText = misPoemas[indice];
+    </script>
 </html>
