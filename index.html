@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Para mi Chiquita ❤️</title>
     <style>
         /* Estética 'Miniso': Fuente redonda, colores pastel y sombras suaves */
@@ -97,6 +98,19 @@
             color: #555;
             white-space: pre-line; /* Esto respeta los saltos de línea de tu poema */
         }
+        .carousel-inner img {
+            border-radius: 10px; /* Mismo radio que tenías en tus cards */
+            height: 200px;       /* Mantener la altura fija */
+            object-fit: cover;   /* Para que la foto no se estire raro */
+        }
+
+        /* Opcional: Para que los botones del slider no sean tan grandes/invasivos */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1); /* Cambia las flechas a negro si el fondo es claro, o déjalo así */
+            width: 2rem;
+            height: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -112,13 +126,68 @@
     </div>
         <div class="gallery">
             <div class="card">
-                <img src="img/foto1.jpg" alt="Sonrisa"> 
+                <div class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/ella_7.jpg" alt="Sonrisa">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/ella_10.jpg" alt="Sonrisa">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/ella_11.jpg" alt="Sonrisa">
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>  
                 <p>Cuando te ríes por mis chistes malos</p>
             </div>
 
             <div class="card">
-                <img src="img/foto2.jpg" alt="D&D">
-                <p>Nuestras ganas de jugar D&D</p>
+                <div class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Mimida_9.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mimida_5.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mimida_6.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mimida_7.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mimida_4.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mimida_2.jpg" alt="Mimida">
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+                
+                
+                
+                
+                <p>Verte mimir 😸</p>
             </div>
 
             <div class="card">
@@ -155,7 +224,7 @@
             `"Entre todas las posibilidades del universo,
             te eligo a ti, una y otra vez.
             por que eres mi todo,
-            mi principio y mi fin,"`,
+            mi principio y mi fin."`,
 
             `"Este poema llega desde el primer dia
             cuando tu mirada chocó con la mia.
@@ -171,12 +240,12 @@
             hasta tu forma de reir.
             eres perfecta para mi,
             y contigo tire un D20 
-            y al ver el critico sonrei"`,
+            y al ver el critico sonrei."`,
 
             `"soy un poco torpe,
             y tambien un poco distraido,
             pero si hay algo que se
-            es que te amo con cada fibra de mi ser"`,
+            es que te amo con cada fibra de mi ser."`,
 
             `"En tu fe todo lo puedes
             y en tu alma todo puedes lograr,
@@ -225,4 +294,5 @@
         // Mostrar el poema
         document.getElementById("poema-diario").innerText = misPoemas[indice];
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>
