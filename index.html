@@ -10,12 +10,33 @@
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
         body {
-            background-color: #fdf2f8; /* Rosa muy pálido */
+            background-color: #fdf2f8; /* Tu color base rosa pálido se mantiene */
             font-family: 'Quicksand', sans-serif;
             color: #5d5d5d;
             margin: 0;
             padding: 20px;
             text-align: center;
+
+            /* --- INICIO DEL FONDO DE CORAZONES --- */
+            /* Usamos el mismo corazoncito dos veces como dos capas diferentes.
+            El color es un rosa muy clarito (#fbcfe8) para que no moleste la vista. */
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23fbcfe8'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%23f9a8d4'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+
+            /* EL TRUCO DE LA ALEATORIEDAD:
+            La capa 1 (corazones más claros) se repite en un patrón de 250x250px.
+            La capa 2 (un poquito más oscuros y pequeños) se repite en 410x410px.
+            Al ser números diferentes, los patrones se desfasan y parece aleatorio. */
+            background-size: 250px 250px, 410px 410px;
+
+            /* Desplazamos un poco la segunda capa para que no empiecen igual */
+            background-position: 0 0, 120px 80px;
+
+            /* Esto hace que el fondo se quede quieto cuando haces scroll,
+            da un efecto muy elegante */
+            background-attachment: fixed;
+            /* --- FIN DEL FONDO DE CORAZONES --- */
         }
 
         h1 {
@@ -25,14 +46,14 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         /* Tarjetas estilo Polaroid */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
@@ -100,7 +121,7 @@
         }
         .carousel-inner img {
             border-radius: 10px; /* Mismo radio que tenías en tus cards */
-            height: 200px;       /* Mantener la altura fija */
+            height: 600px;       /* Mantener la altura fija */
             object-fit: cover;   /* Para que la foto no se estire raro */
         }
 
@@ -126,7 +147,7 @@
     </div>
         <div class="gallery">
             <div class="card">
-                <div class="carousel slide" data-bs-ride="carousel">
+                <div id="carruselRecuerdos1" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="img/ella_7.jpg" alt="Sonrisa">
@@ -138,21 +159,21 @@
                             <img src="img/ella_11.jpg" alt="Sonrisa">
                         </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos1" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Anterior</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos1" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Siguiente</span>
                         </button>
                     </div>
                 </div>  
-                <p>Cuando te ríes por mis chistes malos</p>
+                <p>Su hermosa sonrisa 😍</p>
             </div>
 
             <div class="card">
-                <div class="carousel slide" data-bs-ride="carousel">
+                <div id="carruselRecuerdos2" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="img/Mimida_9.jpg" alt="Mimida">
@@ -173,11 +194,11 @@
                             <img src="img/Mimida_2.jpg" alt="Mimida">
                         </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos2" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Anterior</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos2" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Siguiente</span>
                         </button>
@@ -187,12 +208,12 @@
                 
                 
                 
-                <p>Verte mimir 😸</p>
+                <p>Verla mimir 😸</p>
             </div>
 
             <div class="card">
                 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../giphy.gif" alt="Gif tierno">
-                <p>Que me apoyes con mis códigos</p>
+                <p>Salir con ella a cualquier lugar 🦀</p>
             </div>
         </div>
 
