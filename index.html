@@ -132,13 +132,77 @@
             width: 2rem;
             height: 2rem;
         }
+        /* --- ESTILOS DEL SALÓN DE LA FAMA (FLIP CARDS) --- */
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 350px; /* Altura fija para que todas sean iguales */
+            perspective: 1000px; /* Esto da el efecto de profundidad 3D */
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s; /* Duración del giro */
+            transform-style: preserve-3d;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Esta clase se agrega con JS al hacer click */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Oculta la parte de atrás al girar */
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden; /* Para que la imagen no se salga de las esquinas redondas */
+        }
+
+        /* Estilo del Frente (Imagen) */
+        .flip-card-front {
+            background-color: white;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la foto llene todo el espacio sin deformarse */
+        }
+
+        /* Estilo de Atrás (Texto) */
+        .flip-card-back {
+            background-color: #fbcfe8; /* Un rosa pastel más intenso que el fondo */
+            color: #831843; /* Texto color vino/rosa oscuro */
+            transform: rotateY(180deg); /* Ya está girada para que al voltear se vea bien */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el texto verticalmente */
+            align-items: center;
+            padding: 20px;
+        }
+
+        .flip-card-back h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>🐻 Cosas que le gustan al Osito 🐻</h1>
-        <p>...de su chiquita preciosa</p>
+        <p>...de su chiquita preciosa💞</p>
         <div class="poem-section">
     <div class="poem-title">✨ Poema del Día ✨</div>
     <div class="poem-content" id="poema-diario">
@@ -150,7 +214,7 @@
                 <div id="carruselRecuerdos1" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/ella_7.jpg" alt="Sonrisa">
+                            <img src="img/us_4.jpg" alt="Sonrisa">
                         </div>
                         <div class="carousel-item">
                             <img src="img/ella_10.jpg" alt="Sonrisa">
@@ -188,9 +252,6 @@
                             <img src="img/Mimida_7.jpg" alt="Mimida">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/Mimida_4.jpg" alt="Mimida">
-                        </div>
-                        <div class="carousel-item">
                             <img src="img/Mimida_2.jpg" alt="Mimida">
                         </div>
 
@@ -204,20 +265,121 @@
                         </button>
                     </div>
                 </div>
-                
-                
-                
-                
                 <p>Verla mimir 😸</p>
             </div>
 
             <div class="card">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../giphy.gif" alt="Gif tierno">
+                <div id="carruselRecuerdos3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/salidas_1.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/salidas_2.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/salidas_3.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/salidas_5.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Recreacion_1.jpg" alt="Mimida">
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
                 <p>Salir con ella a cualquier lugar 🦀</p>
+            </div>
+
+            <div class="card">
+                <div id="carruselRecuerdos4" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Kisses_2.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Kisses_1.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Kisses_3.jpg" alt="Mimida">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/us_3.jpg" alt="Mimida">
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRecuerdos4" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselRecuerdos4" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+                <p>Cuando nos besamos 😘💕</p>
             </div>
         </div>
 
         <button class="btn-love" onclick="alert('¡Te amo muchísimo! ❤️')">Click si me amas</button>
+        <div class="container mt-5 mb-5">
+        <h2 style="color: #db2777; margin-bottom: 30px;">🏆 Salón de la Fama 🏆</h2>
+        <p class="mb-4">Haz click en las fotos para descubrir por qué son mis favoritas...</p>
+
+        <div class="row justify-content-center">
+            
+            <div class="col-md-4 mb-4">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/ella_7.jpg" alt="Foto favorita 1">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>La mejor sonrisa</h3>
+                            <p>"Esta foto es de mis favoritas ya que me recuerda que cerramos uno de los ciclos de la vida mas importantes juntos, que esa sonrisa seguia conmigo aun despues de atravesar 2 años de contabilidad bastante pesados"</p>
+                            <p>❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/fama_1.jpg" alt="Foto favorita 2">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>la escencia de lo simple</h3>
+                            <p>"Este dia fue tan memorable, recuerdo que esto fue una petición tan random, pero me senti feliz entre tus piernas"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/fama_2.jpg" alt="Foto favorita 3">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Al mejor outfit</h3>
+                            <p>"Ame combinar con los disfraces, te veias tan hermosa y yo tan ogro, quiza en mi mente me dije, 'que outfit mas apegado a nosotros'"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     </div>
     
 </body>
@@ -229,7 +391,7 @@
 
             `"Sin tu apoyo, me perderia
             y sin tus besos mi vida no tendria sentido.
-            que se seria de mi sin sentir tus latidos,
+            que seria de mi sin sentir tus latidos,
             mi mente por completo se nublaria."`,
 
             `"Eres mi blindbox favorita,
@@ -249,19 +411,19 @@
 
             `"Este poema llega desde el primer dia
             cuando tu mirada chocó con la mia.
-            y me di cuenta de lo rapido que mi corazon latia.
+            y me di cuenta de lo rapido que mi corazón latia.
             son 3 años y 6 meses,
             y mi amor por ti solo crece.
             
             solo decirte que este corazon,
-            tiene dueña y esa eres tu mi amor."`,
+            tiene dueña y esa eres tú mi amor."`,
 
             `"Me gusta todo de ti,
             desde tu olor,
-            hasta tu forma de reir.
-            eres perfecta para mi,
-            y contigo tire un D20 
-            y al ver el critico sonrei."`,
+            hasta tu forma de reír.
+            eres perfecta para mí,
+            y contigo tiré un D20 
+            y al ver el crítico sonreí."`,
 
             `"soy un poco torpe,
             y tambien un poco distraido,
@@ -273,34 +435,33 @@
             por que eres alguien fuerte
             y no se puede negar.
             
-            alma pura de corazon valiente
+            alma pura de corazón valiente
             no dejes que los malos apaguen tu luz,
             vive siempre mirando al frente
-            y muestrale al mundo quien eres tu."`,
+            y muestrale al mundo quien eres tú."`,
 
-            `"Siempre estare ahi para ti
+            `"Siempre estare ahi para tí
             aunque el mundo me aleje de tu ser
-            aun si mi cuerpo no puede estar junto al tuyo
+            aún si mi cuerpo no puede estar junto al tuyo
             mi alma siempre te va a pertenecer.
             
-            este escrito valdra cada ves que sientas mal
+            Este escrito valdra cada ves que te sientas mal
             por que este es mi apoyo
-            y jamas se va a deteriorar
+            y jamás se va a deteriorar
             
-            mis regalos buscan tocar tu corazon
+            Mis regalos buscan tocar tu corazón
             y mostrarte mi alma
-            hacerte sentir,
-            que siempre estaras acompañada
+            hacerte sentir que siempre estaras acompañada
             por mi amor y mi comedia 
 
-            tu eres mi inspiracion 
-            y mi razon de ser
+            Tú eres mi inspiración 
+            y mi razón de ser
             eres el motivo por el cual
             todos los dias debo agradecer
 
-            eres tan especial y calientas mi alma
+            Eres tan especial y calientas mi alma
             oh amor, por favor vuelve a sonreir
-            y llena mi corazon del amor.....
+            y llena mi corazón del amor.....
             que me haces sentir."`
         ];
 
